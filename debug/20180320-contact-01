@@ -1,0 +1,102 @@
+Admins-MacBook-Pro-3:aristobot admin$ python main.py
+{249525389: <States.START: 0>} {249525389: {'av': 2, 'name': 'Victor', 'courses': [{'_id': ObjectId('5aa03c0528753d13a9f8e297'), 'title': 'Test Course #1', 'active': 1, 'from': datetime.datetime(2012, 5, 14, 16, 20, 9, 314000), 'to': datetime.datetime(2012, 5, 14, 16, 20, 9, 314000), 'share_video': 1, 'description': 'course for smart', 'users': {'mentors': [{'id': 12, 'confirmed': 1}], 'students': [{'id': 3, 'confirmed': 1}, {'id': 4, 'confirmed': 1}, {'id': 5, 'confirmed': 1}]}, 'classes': ['5aabc66cd7dc8308883e392a', '5aa6a1acd7dc8308883e3928']}], 'ap_course_id': '5aa03c0528753d13a9f8e297', 'ap_course_name': 'Test Course #1', 'role': None, 'classes': [{'_id': ObjectId('5aabc66cd7dc8308883e392a'), 'title': 'Introductory Class', 'start': datetime.datetime(2018, 3, 16, 14, 18, 46, 766000), 'end': datetime.datetime(2018, 3, 16, 14, 18, 46, 766000), 'yt_video': '', 'braincert_id': ''}, {'_id': ObjectId('5aa6a1acd7dc8308883e3928'), 'title': 'Math', 'start': datetime.datetime(2012, 5, 14, 16, 20, 9, 314000), 'end': datetime.datetime(2012, 5, 14, 16, 20, 9, 314000), 'yt_video': '', 'braincert_id': ''}], 'fname': 'Victor', 'lname': 'R', 'course_id': '5aa03c0528753d13a9f8e297', 'course_name': 'Test Course #1', 'phone': '79296701704', 'tgchat': 249525389}}
+db
+init
+Starting to flow< data:
+New state States.START
+data prep ended
+preprocessing
+done. result: {'t': "Hey Victor, nice to meet you! I'm Aristotle, and I will help you at Fless. What would you like to do?", 'b': [{'Log in as student': <action: state <States.TG: 10>>}, {'Explore Fless': <action: state <States.ALL_COURSES: 51>>}], 'prepare': <function set_name at 0x10b98d730>}
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>}
+Starting to flow< data:
+called action:<action: state <States.ALL_COURSES: 51>>
+New state States.ALL_COURSES
+data prep ended
+preprocessing
+done. result: {'t': 'Have a look at our courses', 'b': [{'Test Course #1': <action: <lambda>(i, s, **d)>}], 'prepare': <function <lambda> at 0x10b9c90d0>, 'kb_txt': 'Welcome!', 'kb': [{'Home': <action: state <States.HOME: 200>>}, {'Login': <action: state <States.TG: 10>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>}
+Starting to flow< data:
+called action:<action: <lambda>(i, s, **d)>
+New state States.COURSE
+data prep ended
+preprocessing
+done. result: {'t': 'Course details:\n*Test Course #1*\n *Dates*: 14/05,16:20-14/05,16:20 \n *Enrollment*: Open \ncourse for smart*Schedule:*\nIntroductory Class\nMath\n', 'b': [{'Apply': <action: state <States.APPLY: 60>>}], 'prepare': <function <lambda> at 0x10b9c9488>}
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, '<action: state <States.APPLY: 60>>': <action: state <States.APPLY: 60>>}
+gor message stateStates.COURSE
+[]
+Starting to flow< data:
+called action:<action: state <States.TG: 10>>
+New state States.TG
+preprocessing
+done. result: {'t': 'Victor, Please share your contact detailsso I can recognize you', 'kb': [{'Send contact': <action: contact_check(i, s, **d)>, 'kwargs': {'request_contact': True}}, {'<- Back': <action: state <States.START: 0>>}]}
+react tocontact
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, '<action: state <States.APPLY: 60>>': <action: state <States.APPLY: 60>>, 'kb_<- Back': <action: state <States.START: 0>>}
+gor message stateStates.TG
+[('contact', <action: contact_check(i, s, **d)>)]
+Starting to flow< data:
+called action:<action: contact_check(i, s, **d)>
+New state States.GMAIL
+preprocessing
+done. result: {'t': 'Victor, Please share your email address', 'react': <action: save_gmail(i, s, **d)>, 'kb': 'Remove'}
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, '<action: state <States.APPLY: 60>>': <action: state <States.APPLY: 60>>, 'kb_<- Back': <action: state <States.START: 0>>}
+gor message stateStates.GMAIL
+[('contact', <action: contact_check(i, s, **d)>), ('text', <action: save_gmail(i, s, **d)>)]
+Starting to flow< data:
+applicant
+saving new user {'firstname': 'Victor', 'lastname': 'R', 'phone': '79296701704', 'tgchat': 249525389, 'email': 'Rogulenko@gmail.com'} 
+called action:<action: save_gmail(i, s, **d)>
+New state States.USER_SAVED
+preprocessing
+done. result: {'t': 'Sucess! We will contact you', 'b': [{'To start': <action: <lambda>(i, s, **d)>}]}
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, '<action: state <States.APPLY: 60>>': <action: state <States.APPLY: 60>>, 'kb_<- Back': <action: state <States.START: 0>>}
+Starting to flow< data:
+called action:<action: <lambda>(i, s, **d)>
+New state States.START
+data prep ended
+preprocessing
+done. result: {'t': "Hey Victor, nice to meet you! I'm Aristotle, and I will help you at Fless. What would you like to do?", 'b': [{'Log in as student': <action: state <States.TG: 10>>}, {'Explore Fless': <action: state <States.ALL_COURSES: 51>>}], 'prepare': <function set_name at 0x10b98d730>}
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, '<action: state <States.APPLY: 60>>': <action: state <States.APPLY: 60>>, 'kb_<- Back': <action: state <States.START: 0>>}
+Starting to flow< data:
+called action:<action: state <States.TG: 10>>
+New state States.TG
+preprocessing
+done. result: {'t': 'Victor, Please share your contact detailsso I can recognize you', 'kb': [{'Send contact': <action: contact_check(i, s, **d)>, 'kwargs': {'request_contact': True}}, {'<- Back': <action: state <States.START: 0>>}]}
+react tocontact
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, '<action: state <States.APPLY: 60>>': <action: state <States.APPLY: 60>>, 'kb_<- Back': <action: state <States.START: 0>>}
+gor message stateStates.TG
+[('contact', <action: contact_check(i, s, **d)>), ('text', <action: save_gmail(i, s, **d)>), ('contact', <action: contact_check(i, s, **d)>)]
+Starting to flow< data:
+called action:<action: contact_check(i, s, **d)>
+New state States.NOT_ENROLLED
+preprocessing
+done. result: {'t': 'It seems that you are not currently enrolled in any ofthe courses. Would you like to enrol now? Or contact Fless if you think here was a mistake', 'b': [{'List Fless courses': <action: state <States.ALL_COURSES: 51>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, '<action: state <States.APPLY: 60>>': <action: state <States.APPLY: 60>>, 'kb_<- Back': <action: state <States.START: 0>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>}
+Starting to flow< data:
+called action:<action: state <States.CONTACT: 40>>
+New state States.CONTACT
+preprocessing
+done. result: {'t': "Tell me what's on your mind, and I'll pass it over tothe rest of Fless team. We'll get back to you shortly", 'b': [{'To start': <action: state <States.START: 0>>}]}
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, '<action: state <States.APPLY: 60>>': <action: state <States.APPLY: 60>>, 'kb_<- Back': <action: state <States.START: 0>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: state <States.START: 0>>': <action: state <States.START: 0>>}
+gor message stateStates.CONTACT
+[('contact', <action: contact_check(i, s, **d)>), ('text', <action: save_gmail(i, s, **d)>), ('contact', <action: contact_check(i, s, **d)>)]
+Starting to flow< data:
+None
+saving Sfgh g for 249525389
+called action:<action: save_gmail(i, s, **d)>
+New state States.ERROR
+preprocessing
+done. result: {'t': 'Soorry, an error occured.Please contact us on @danlkv', 'b': [{'To start': <action: state <States.START: 0>>}]}
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, '<action: state <States.APPLY: 60>>': <action: state <States.APPLY: 60>>, 'kb_<- Back': <action: state <States.START: 0>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: state <States.START: 0>>': <action: state <States.START: 0>>}
+gor message stateStates.ERROR
+[('contact', <action: contact_check(i, s, **d)>), ('text', <action: save_gmail(i, s, **d)>), ('contact', <action: contact_check(i, s, **d)>)]
+Starting to flow< data:
+None
+saving Test message g for 249525389
+called action:<action: save_gmail(i, s, **d)>
+New state States.ERROR
+preprocessing
+done. result: {'t': 'Soorry, an error occured.Please contact us on @danlkv', 'b': [{'To start': <action: state <States.START: 0>>}]}
+registration ended {'<action: state <States.TG: 10>>': <action: state <States.TG: 10>>, '<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, '<action: state <States.APPLY: 60>>': <action: state <States.APPLY: 60>>, 'kb_<- Back': <action: state <States.START: 0>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: state <States.START: 0>>': <action: state <States.START: 0>>}
+
+
+

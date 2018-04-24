@@ -1,0 +1,137 @@
+Admins-MacBook-Pro-3:aristobot admin$ python main.py
+{249525389: <States.NOT_ENROLLED: 80>} {249525389: {'av': 2, 'name': 'Victor', 'courses': [{'_id': ObjectId('5aa03c0528753d13a9f8e297'), 'title': 'Test Course #1', 'active': 1, 'from': datetime.datetime(2012, 5, 14, 16, 20, 9, 314000), 'to': datetime.datetime(2012, 5, 14, 16, 20, 9, 314000), 'share_video': 1, 'description': 'course for smart', 'users': {'mentors': [{'id': 12, 'confirmed': 1}], 'students': [{'id': 3, 'confirmed': 1}, {'id': 4, 'confirmed': 1}, {'id': 5, 'confirmed': 1}]}, 'classes': ['5aabc66cd7dc8308883e392a', '5aa6a1acd7dc8308883e3928']}], 'ap_course_id': '5aa03c0528753d13a9f8e297', 'ap_course_name': 'Test Course #1', 'role': None, 'classes': [{'_id': ObjectId('5aabc66cd7dc8308883e392a'), 'title': 'Introductory Class', 'start': datetime.datetime(2018, 3, 16, 14, 18, 46, 766000), 'end': datetime.datetime(2018, 3, 16, 14, 18, 46, 766000), 'yt_video': '', 'braincert_id': ''}, {'_id': ObjectId('5aa6a1acd7dc8308883e3928'), 'title': 'Math', 'start': datetime.datetime(2012, 5, 14, 16, 20, 9, 314000), 'end': datetime.datetime(2012, 5, 14, 16, 20, 9, 314000), 'yt_video': '', 'braincert_id': ''}], 'fname': 'Victor', 'lname': 'Rogulenko', 'course_id': '5aa03c0528753d13a9f8e297', 'course_name': 'Test Course #1', 'phone': '79296701704', 'tgchat': 249525389}}
+db
+init
+gor message stateStates.NOT_ENROLLED
+[]
+Starting to flow< data:
+New state States.NOT_ENROLLED
+preprocessing
+done. result: {'t': 'It seems that you are not currently enrolled in any ofthe courses. Would you like to enrol now? Or contact Fless if you think here was a mistake', 'b': [{'List Fless courses': <action: state <States.ALL_COURSES: 51>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>}
+gor message stateStates.NOT_ENROLLED
+[]
+Starting to flow< data:
+New state States.NOT_ENROLLED
+preprocessing
+done. result: {'t': 'It seems that you are not currently enrolled in any ofthe courses. Would you like to enrol now? Or contact Fless if you think here was a mistake', 'b': [{'List Fless courses': <action: state <States.ALL_COURSES: 51>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>}
+gor message stateStates.NOT_ENROLLED
+[]
+Starting to flow< data:
+New state States.NOT_ENROLLED
+preprocessing
+done. result: {'t': 'It seems that you are not currently enrolled in any ofthe courses. Would you like to enrol now? Or contact Fless if you think here was a mistake', 'b': [{'List Fless courses': <action: state <States.ALL_COURSES: 51>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>}
+Starting to flow< data:
+called action:<action: state <States.ALL_COURSES: 51>>
+New state States.ALL_COURSES
+data prep ended
+preprocessing
+done. result: {'t': 'Have a look at our courses', 'b': [{'Test Course #1': <action: <lambda>(i, s, **d)>}], 'prepare': <function <lambda> at 0x1031650d0>, 'kb_txt': 'Welcome!', 'kb': [{'Home': <action: state <States.HOME: 200>>}, {'Login': <action: state <States.TG: 10>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>}
+gor message stateStates.ALL_COURSES
+[]
+Starting to flow< data:
+New state States.ALL_COURSES
+data prep ended
+preprocessing
+done. result: {'t': 'Have a look at our courses', 'b': [{'Test Course #1': <action: <lambda>(i, s, **d)>}], 'prepare': <function <lambda> at 0x1031650d0>, 'kb_txt': 'Welcome!', 'kb': [{'Home': <action: state <States.HOME: 200>>}, {'Login': <action: state <States.TG: 10>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>}
+gor message stateStates.ALL_COURSES
+[]
+Starting to flow< data:
+called action:<action: state <States.TG: 10>>
+New state States.TG
+preprocessing
+done. result: {'t': 'Victor, Please share your contact detailsso I can recognize you', 'kb': [{'Send contact': <action: contact_check(i, s, **d)>, 'kwargs': {'request_contact': True}}, {'<- Back': <action: state <States.START: 0>>}]}
+react tocontact
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, 'kb_<- Back': <action: state <States.START: 0>>}
+gor message stateStates.TG
+[('contact', <action: contact_check(i, s, **d)>)]
+Starting to flow< data:
+called action:<action: contact_check(i, s, **d)>
+New state States.NOT_ENROLLED
+preprocessing
+done. result: {'t': 'It seems that you are not currently enrolled in any ofthe courses. Would you like to enrol now? Or contact Fless if you think here was a mistake', 'b': [{'List Fless courses': <action: state <States.ALL_COURSES: 51>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, 'kb_<- Back': <action: state <States.START: 0>>}
+Starting to flow< data:
+called action:<action: state <States.ALL_COURSES: 51>>
+New state States.ALL_COURSES
+data prep ended
+preprocessing
+done. result: {'t': 'Have a look at our courses', 'b': [{'Test Course #1': <action: <lambda>(i, s, **d)>}], 'prepare': <function <lambda> at 0x1031650d0>, 'kb_txt': 'Welcome!', 'kb': [{'Home': <action: state <States.HOME: 200>>}, {'Login': <action: state <States.TG: 10>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, 'kb_<- Back': <action: state <States.START: 0>>}
+gor message stateStates.ALL_COURSES
+[('contact', <action: contact_check(i, s, **d)>)]
+Starting to flow< data:
+New state States.ALL_COURSES
+data prep ended
+preprocessing
+done. result: {'t': 'Have a look at our courses', 'b': [{'Test Course #1': <action: <lambda>(i, s, **d)>}], 'prepare': <function <lambda> at 0x1031650d0>, 'kb_txt': 'Welcome!', 'kb': [{'Home': <action: state <States.HOME: 200>>}, {'Login': <action: state <States.TG: 10>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, 'kb_<- Back': <action: state <States.START: 0>>}
+gor message stateStates.ALL_COURSES
+[('contact', <action: contact_check(i, s, **d)>)]
+Starting to flow< data:
+called action:<action: state <States.HOME: 200>>
+New state States.HOME
+data prep ended
+preprocessing
+done. result: {'t': 'Here are your courses', 'b': [{'List other Fless courses': <action: state <States.ALL_COURSES: 51>>}, {'Test Course #1': <action: <lambda>(i, s, **d)>}], 'prepare': <function <lambda> at 0x1031602f0>, 'kb_txt': 'Welcome!', 'kb': [{'Home': <action: state <States.HOME: 200>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, 'kb_<- Back': <action: state <States.START: 0>>}
+gor message stateStates.HOME
+[('contact', <action: contact_check(i, s, **d)>)]
+Starting to flow< data:
+called action:<action: state <States.HOME: 200>>
+New state States.HOME
+data prep ended
+preprocessing
+done. result: {'t': 'Here are your courses', 'b': [{'List other Fless courses': <action: state <States.ALL_COURSES: 51>>}, {'Test Course #1': <action: <lambda>(i, s, **d)>}], 'prepare': <function <lambda> at 0x1031602f0>, 'kb_txt': 'Welcome!', 'kb': [{'Home': <action: state <States.HOME: 200>>}, {'Contact': <action: state <States.CONTACT: 40>>}]}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, 'kb_<- Back': <action: state <States.START: 0>>}
+Starting to flow< data:
+called action:<action: <lambda>(i, s, **d)>
+New state States.COURSE
+data prep ended
+preprocessing
+done. result: {'t': '', 'b': [None], 'prepare': <function <lambda> at 0x103165488>}
+registration ended {'<action: state <States.ALL_COURSES: 51>>': <action: state <States.ALL_COURSES: 51>>, '<action: state <States.CONTACT: 40>>': <action: state <States.CONTACT: 40>>, '<action: <lambda>(i, s, **d)>': <action: <lambda>(i, s, **d)>, 'kb_Home': <action: state <States.HOME: 200>>, 'kb_Login': <action: state <States.TG: 10>>, 'kb_Contact': <action: state <States.CONTACT: 40>>, 'kb_<- Back': <action: state <States.START: 0>>}
+2018-03-20 19:32:31,644 (util.py:64 WorkerThread2) ERROR - TeleBot: "AttributeError occurred, args=("'NoneType' object has no attribute 'items'",)
+Traceback (most recent call last):
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/util.py", line 58, in run
+    task(*args, **kwargs)
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/frm/TgFlow.py", line 81, in callback_handler
+    messages = flow(a,s,d,call,call.message.chat.id)
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/frm/TgFlow.py", line 112, in flow
+    messages = render.render(ui)
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/frm/render.py", line 56, in render
+    for butrow in butns]
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/frm/render.py", line 56, in <listcomp>
+    for butrow in butns]
+AttributeError: 'NoneType' object has no attribute 'items'
+"
+Traceback (most recent call last):
+  File "main.py", line 19, in <module>
+    Arist.start()
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/Arist.py", line 24, in start
+    Tgflow.start(UI)
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/frm/TgFlow.py", line 56, in start
+    bot.polling(none_stop=True)
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/__init__.py", line 264, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/__init__.py", line 288, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/util.py", line 107, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/six.py", line 693, in reraise
+    raise value
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/util.py", line 58, in run
+    task(*args, **kwargs)
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/frm/TgFlow.py", line 81, in callback_handler
+    messages = flow(a,s,d,call,call.message.chat.id)
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/frm/TgFlow.py", line 112, in flow
+    messages = render.render(ui)
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/frm/render.py", line 56, in render
+    for butrow in butns]
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/frm/render.py", line 56, in <listcomp>
+    for butrow in butns]
+AttributeError: 'NoneType' object has no attribute 'items'

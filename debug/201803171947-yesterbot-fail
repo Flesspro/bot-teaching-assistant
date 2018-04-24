@@ -1,0 +1,49 @@
+Admins-MacBook-Pro-3:aristobot admin$ python main.py
+'NoneType' object has no attribute 'items'
+
+
+DBID
+[17.03.2018 19:45:40] Arist.py:261 DEBUG - User victor_rogulenko started a chat. id:249525389
+249525389 States.HOME
+got message from 249525389 he is Roles.UNKNOWN with state States.HOME
+handling backend States.HOME
+[{'_id': ObjectId('5aa03c0528753d13a9f8e297'), 'title': 'Test Course #1', 'active': 1, 'from': datetime.datetime(2012, 5, 14, 16, 20, 9, 314000), 'to': datetime.datetime(2012, 5, 14, 16, 20, 9, 314000), 'share_video': 1, 'description': 'course for smart', 'users': {'mentors': [{'id': 12, 'confirmed': 1}], 'students': [{'id': 3, 'confirmed': 1}, {'id': 4, 'confirmed': 1}, {'id': 5, 'confirmed': 1}]}, 'classes': ['5aabc66cd7dc8308883e392a', '5aa6a1acd7dc8308883e3928']}] {'Test Course #1': '5aa03c0528753d13a9f8e297'}
+2018-03-17 19:45:40,629 (util.py:64 WorkerThread1) ERROR - TeleBot: "KeyError occurred, args=(<Roles.UNKNOWN: 0>,)
+Traceback (most recent call last):
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/util.py", line 58, in run
+    task(*args, **kwargs)
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/Arist.py", line 149, in generic_handler
+    send_msg(UI.KeyboardMsg[next_role]%msg.from_user.first_name,
+KeyError: <Roles.UNKNOWN: 0>
+"
+[17.03.2018 19:45:40] util.py:64 ERROR - KeyError occurred, args=(<Roles.UNKNOWN: 0>,)
+Traceback (most recent call last):
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/util.py", line 58, in run
+    task(*args, **kwargs)
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/Arist.py", line 149, in generic_handler
+    send_msg(UI.KeyboardMsg[next_role]%msg.from_user.first_name,
+KeyError: <Roles.UNKNOWN: 0>
+
+Traceback (most recent call last):
+  File "main.py", line 22, in <module>
+    Arist.start()
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/Arist.py", line 46, in start
+    Arist.polling(none_stop=True)
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/__init__.py", line 264, in polling
+    self.__threaded_polling(none_stop, interval, timeout)
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/__init__.py", line 288, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/util.py", line 107, in raise_exceptions
+    six.reraise(self.exc_info[0], self.exc_info[1], self.exc_info[2])
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/six.py", line 693, in reraise
+    raise value
+  File "/Users/admin/anaconda3/lib/python3.6/site-packages/telebot/util.py", line 58, in run
+    task(*args, **kwargs)
+  File "/Users/admin/Dropbox/Fless/15_Bot/Aristotle_v02/aristobot/Arist.py", line 149, in generic_handler
+    send_msg(UI.KeyboardMsg[next_role]%msg.from_user.first_name,
+KeyError: <Roles.UNKNOWN: 0>
+Admins-MacBook-Pro-3:aristobot admin$ Admins-MacBook-Pro-3:aristobot admin$ python main.py
+-bash: Admins-MacBook-Pro-3:aristobot: command not found
+Admins-MacBook-Pro-3:aristobot admin$ 'NoneType' object has no attribute 'items'
+-bash: NoneType: command not found
+Admins-MacBook-Pro-3:aristobot admin$ 
