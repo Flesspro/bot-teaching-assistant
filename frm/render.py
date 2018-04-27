@@ -1,5 +1,5 @@
 import json,pprint,copy,telebot
-pp = pprint.PrettyPrinter(indent=5)
+pp = pprint.PrettyPrinter(indent=3)
 
 from . import handles as h
 
@@ -41,7 +41,8 @@ def prep(UI,args):
     if b:
         if isinstance(b,list):
             ui['b']=flatten(b)
-    print('done. result:',ui)
+    print('done. result:')
+    pp.pprint(ui)
     return ui
 
 def render(ui):
@@ -53,7 +54,7 @@ def render(ui):
         telebot.types.InlineKeyboardButton(text=bt,
                                            callback_data=str(s))
                     for bt,s in butrow.items()]
-                        for butrow in butns]
+                        for butrow in butns if butrow]
         imarkup = telebot.types.InlineKeyboardMarkup(row_width=1)
         imarkup.add(*sum(butns,[]))
     else:

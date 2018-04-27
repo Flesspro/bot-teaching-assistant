@@ -2,7 +2,7 @@ import inspect
 from inspect import signature
 from enum import Enum
 import pprint
-pp = pprint.PrettyPrinter(indent=4)
+pp = pprint.PrettyPrinter(indent=1)
 
 class post():
     def __init__(self,func,name=None):
@@ -19,6 +19,9 @@ class post():
         else: return "<post func: "+self.f.__name__+str(signature(self.f))+">"
 
     def apply(self,s,d):
+        print ("s=", s, "************")
+        print (self.f, self.k)
+        pp.pprint (d)
         return self.f(s,**d)
 
 class action():
@@ -33,13 +36,17 @@ class action():
         self.ns = ns
 
     def __repr__(self):
+        s = "<+action"
+        if self.__name__:
+            s += self.__name__
+        s += ':'
         if self.ns:
-            return "<+action: state "+self.ns.__repr__()+">"
+            return s + " state " + self.ns.__repr__() + ">"
         else:
             try:
-                return "<+action: "+self.f.__name__+str(signature(self.f))+">"
+                return s + self.f.__name__ + str(signature(self.f)) + ">"
             except TypeError:
-                return "<+action: "+self.f.__repr__()+">"
+                return s + self.f.__repr__() + ">"
 
     def call(self,i,s,**d):
         #todo: check signature
@@ -64,8 +71,8 @@ class action():
                 if len(outp)==2:
                     # User has to return state as first and data as second value
                     ns = outp[0]
-                    print("OUTPUT OF %s:"%str(self.f))
-                    pp.pprint(outp)
+                    #print("OUTPUT OF %s:"%str(self.f))
+                    #pp.pprint(outp)
                     d.update(outp[1])
                 if len(outp)==1:
                     ns = outp[0]

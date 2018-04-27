@@ -80,15 +80,19 @@ UI={
           'b':[
                # button to display each course with title on it
                handlePost(lambda s,**d:\
-                  list(map(lambda course:\
+                  (list(map(lambda course:\
                       {course.get('title') : handleAction(lambda i,s,**d:
                             (States.COURSE,\
                              # and also save course_id he picked
                              dict(d,**{'course_id':str(course.get('_id')),
                                        'course_name':course.get('title'),
                                        'role':'student'})\
-                            ))},\
-                    d['courses']))),
+                            ),
+                            name=course.get('title')
+                            )},\
+                        d.get('courses',[]) or []))\
+                )
+                ),
                 # list all other Fless courses
                 {'List other Fless courses':handleAction(States.ALL_COURSES)}
               ],

@@ -3,7 +3,7 @@ from frm import handles as handles
 from DataBase import db
 
 import pprint
-pp = pprint.PrettyPrinter(indent=4)
+pp = pprint.PrettyPrinter(indent=1)
 
 handlePost =handles.post
 handleAction = handles.action
@@ -34,14 +34,14 @@ def format_course(c):
         fr = c['from'].strftime( f)
         to =c['to'].strftime( f)
     else:
-        fr= 'No start time'
-        to= 'No end time'
-    return "*%s*\n*Dates*: %s-%s \n*Enrollment*: %s \n%s"%(
-        c['title'],fr,to,'Open' if c.get('active') else 'Closed',
+        fr= 'n/a'
+        to= 'n/a'
+    return "*%s*\n*Dates*: %s-%s\n%s\n"%(
+        c['title'],fr,to,
         c.get('description') or 'No description')
 
 def generate_course_text(s,**d):
-    #pp.pprint(d)
+    pp.pprint(d.keys())
     course = db.get_course(d['course_id'])
     pp.pprint("***************")
     pp.pprint(course)
@@ -50,12 +50,18 @@ def generate_course_text(s,**d):
     if d['role'] == 'student':
         text += 'Your course details:\n'
         text += format_course(course)
-        text += format_lessons(course['lessons'],personal=True)
+        try:
+            text += format_lessons(course['lessons'],personal=True)
+        except:
+            text += "No scheduled lessons"
 
     if d['role'] == 'applicant':
         text += 'Course details:\n'
         text += format_course(course)
-        text += format_lessons(course['lessons'])
+        try:
+            text += format_lessons(course['lessons'])
+        except:
+            text += "No scheduled lessons"
     return text
 
 UI={

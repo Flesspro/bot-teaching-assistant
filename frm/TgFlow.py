@@ -1,3 +1,6 @@
+# Framework developed by DaniloZZZ
+# https://github.com/DaniloZZZ
+
 import telebot
 import hashlib
 from . import handles
@@ -5,7 +8,7 @@ from . import render
 import pickle
 
 import pprint
-pp = pprint.PrettyPrinter(indent=4)
+pp = pprint.PrettyPrinter(indent=1)
 
 action = handles.action
 
@@ -133,6 +136,7 @@ def get_state(id,s):
 def save_iactions(ui):
     if isinstance(ui,action):
         Actions[str(ui)]=ui
+        print ('saved action for ',str(ui))
     if isinstance(ui,dict):
         for k,v in ui.items():
             save_iactions(v)
