@@ -66,20 +66,20 @@ def generate_course_text(s,**d):
 
 UI={
     States.ALL_COURSES:{'t':'Have a look at our courses',
-          'b': handlePost(lambda i, s,**d:\
-                      list(map(lambda course:\
-                                  {course.get('title') :\
-                                    handleAction(lambda i,s,**d:
-                                        (States.COURSE,\
-                                         dict([('course_id',str(course.get('_id'))),
-                                                   ('course_name',course.get('title')),
-                                                   ('role','applicant')])\
-                                        )\
-                                     )\
-                                  },\
-                               d['courses'])\
-                          )\
-                 ) ,
+          'b': handlePost(lambda s,**d:\
+                  (list(map(lambda course:\
+                      {course.get('title') : handleAction(lambda i,s,**d:
+                            (States.COURSE,\
+                             # and also save course_id he picked
+                             dict(d,**{'course_id':str(course.get('_id')),
+                                       'course_name':course.get('title'),
+                                       'role':'applicant'})\
+                            ),
+                            name=course.get('title')
+                            )},\
+                        d.get('courses',[]) or []))\
+                    )
+                ),
                  'prepare':lambda i,s,**d:\
                  dict(d,**{'courses':db.get_courses()}),
                  'kb_txt':"Welcome!",

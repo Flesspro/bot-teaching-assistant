@@ -19,9 +19,6 @@ class post():
         else: return "<post func: "+self.f.__name__+str(signature(self.f))+">"
 
     def apply(self,s,d):
-        print ("s=", s, "************")
-        print (self.f, self.k)
-        pp.pprint (d)
         return self.f(s,**d)
 
 class action():
